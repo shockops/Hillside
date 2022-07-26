@@ -1,0 +1,19 @@
+{
+  "name": "hillside",
+  "version": "1.0.0",
+  "description": "Pascal & Leif want to learn Vue.JS and are terrible at it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shockops/Hillside.git"
+  },
+  "author": "Leif Gutsmann & Pascal Gnadt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shockops/Hillside/issues"
+  },
+  "homepage": "https://github.com/shockops/Hillside#readme"
+}
