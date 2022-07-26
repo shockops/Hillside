@@ -1,1 +1,5 @@
+# Vue.JS App Path
 AppHillside/
+
+# Ignore due to sensible Data inside
+database.php
