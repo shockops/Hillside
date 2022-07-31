@@ -1,3 +1,38 @@
+<?php
+    session_start();
+    require('./database.php');
+    require('./Controller/signinController.php');
+    if(isset($_SESSION['userid'])){
+        session_destroy();
+    }
+
+    if(isset($_GET['signin']))
+    {
+        $UserID = $_POST['UserID'];
+        $password = $_POST['password'];
+
+        $val = new ValidateLogin();
+        $allval = $val->get((array('UserID' => $UserID)));
+
+            foreach($allval as $vals)
+            {
+              echo '<script>alert("' . $vals['UserID']. '")</script>';
+                if(empty($vals['UserID']) === false && password_verify($password, $vals['Password']))
+                {
+                  echo '<script>alert("if")</script>';
+                    $_SESSION['UserID'] = $vals['UserID'];
+                    $_SESSION['Username'] = $vals['Firstname'] . ' '.$vals['Lastname'];
+                    header('Location: ./index.php');
+                }
+                else
+                {
+                  echo '<script>alert("Benutzer-ID oder Passwort war ungültig")</script>';
+                    $errorMessage = "Benutzer-ID oder Passwort war ungültig<br>";
+                }
+            }
+        }
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -35,16 +70,16 @@
 <body class="text-center">
 
   <main class="form-signin">
-    <form>
+    <form action="?signin=1" method="post">
       <img class="mb-4" src="./assets/logo/mountain-128.png" alt="" width="128" height="128">
       <h1 class="h3 mb-3 fw-normal">Bitte anmelden</h1>
 
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input type="text" class="form-control" name="UserID" placeholder="name@example.com">
         <label for="floatingInput">Benutzer-ID</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <input type="password" class="form-control" name="password" placeholder="Password">
         <label for="floatingPassword">Passwort</label>
       </div>
 
@@ -63,3 +98,7 @@
 </body>
 
 </html>
+
+<?php
+
+?>
