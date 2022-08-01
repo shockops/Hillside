@@ -13,33 +13,21 @@
 
         $val = new ValidateLogin();
         $allval = $val->get((array('UserID' => $UserID)));
-
-            foreach($allval as $vals)
-            {
-              echo '<script>alert("' . $vals['UserID']. '")</script>';
-              if(password_verify($password, $vals['Password']))
-              {
-                echo '<script>alert("Passwort stimmt.")</script>';
-              }
-              if(empty($vals['UserID']) === false && password_verify($password, $vals['Password']))
-                {
-                  echo '<script>alert("if")</script>';
-                    $_SESSION['UserID'] = $vals['UserID'];
-                    $_SESSION['Username'] = $vals['Firstname'] . ' '.$vals['Lastname'];
-                    header('Location: ./index.php');
-                }
-                else
-                {
-                  echo '<script>alert("Benutzer-ID oder Passwort war ungültig")</script>';
-                  echo '<script>alert("' . md5($password) . '   ' . $vals['Password'] .'")</script>';
-                  // if(md5($password) == $vals['Password'])
-                  // {
-                  //   echo '<script>alert("Passwort stimmt.")</script>';
-                  // }
-                    $errorMessage = "Benutzer-ID oder Passwort war ungültig<br>";
-                }
-            }
+        
+        foreach($allval as $vals)
+        {
+          if(empty($vals['UserID']) === false && password_verify($password, $vals['Password']))
+          {
+              $_SESSION['UserID'] = $vals['UserID'];
+              $_SESSION['Username'] = $vals['Firstname'] . ' '.$vals['Lastname'];
+              header('Location: ./index.php');
+          }
+          else
+          {
+              $errorMessage = "Benutzer-ID oder Passwort war ungültig<br>";
+          }
         }
+    }
 ?>
 
 <!doctype html>
