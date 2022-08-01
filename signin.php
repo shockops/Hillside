@@ -2,7 +2,7 @@
     session_start();
     require('./database.php');
     require('./Controller/signinController.php');
-    if(isset($_SESSION['userid'])){
+    if(isset($_SESSION['UserID'])){
         session_destroy();
     }
 
@@ -17,7 +17,11 @@
             foreach($allval as $vals)
             {
               echo '<script>alert("' . $vals['UserID']. '")</script>';
-                if(empty($vals['UserID']) === false && password_verify($password, $vals['Password']))
+              if(password_verify($password, $vals['Password']))
+              {
+                echo '<script>alert("Passwort stimmt.")</script>';
+              }
+              if(empty($vals['UserID']) === false && password_verify($password, $vals['Password']))
                 {
                   echo '<script>alert("if")</script>';
                     $_SESSION['UserID'] = $vals['UserID'];
@@ -27,6 +31,11 @@
                 else
                 {
                   echo '<script>alert("Benutzer-ID oder Passwort war ungültig")</script>';
+                  echo '<script>alert("' . md5($password) . '   ' . $vals['Password'] .'")</script>';
+                  // if(md5($password) == $vals['Password'])
+                  // {
+                  //   echo '<script>alert("Passwort stimmt.")</script>';
+                  // }
                     $errorMessage = "Benutzer-ID oder Passwort war ungültig<br>";
                 }
             }
@@ -76,11 +85,11 @@
 
       <div class="form-floating">
         <input type="text" class="form-control" name="UserID" placeholder="name@example.com">
-        <label for="floatingInput">Benutzer-ID</label>
+        <label for="floatingInput" class="cntrst">Benutzer-ID</label>
       </div>
       <div class="form-floating">
         <input type="password" class="form-control" name="password" placeholder="Password">
-        <label for="floatingPassword">Passwort</label>
+        <label for="floatingPassword" class="cntrst">Passwort</label>
       </div>
 
       <div class="checkbox mb-3">

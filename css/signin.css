@@ -8,7 +8,15 @@ body {
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #f5f5f5;
+  background-color: #333333;
+}
+
+h1, p, label {
+  color: white;
+}
+
+.cntrst {
+  color: #333333;
 }
 
 .form-signin {
