@@ -1,5 +1,6 @@
 # Vue.JS App Path
 AppHillside/
+node_modules/
 
 # Ignore due to sensible Data inside
 database.php

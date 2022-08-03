@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/shockops/Hillside/issues"
   },
-  "homepage": "https://github.com/shockops/Hillside#readme"
+  "homepage": "https://github.com/shockops/Hillside#readme",
+  "dependencies": {
+    "bootstrap-icons": "^1.9.1"
+  }
 }
