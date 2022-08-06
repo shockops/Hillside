@@ -8,15 +8,15 @@
 
     if(isset($_GET['signin']))
     {
-        $UserID = $_POST['UserID'];
+        $Username = $_POST['Username'];
         $password = $_POST['password'];
 
         $val = new ValidateLogin();
-        $allval = $val->get((array('UserID' => $UserID)));
+        $allval = $val->get((array('Username' => $Username)));
         
         foreach($allval as $vals)
         {
-          if(empty($vals['UserID']) === false && password_verify($password, $vals['Password']))
+          if(empty($vals['Username']) === false && password_verify($password, $vals['Password']))
           {
               $_SESSION['UserID'] = $vals['UserID'];
               $_SESSION['Username'] = $vals['Firstname'] . ' '.$vals['Lastname'];
@@ -72,8 +72,8 @@
       <h1 class="h3 mb-3 fw-normal">Bitte anmelden</h1>
 
       <div class="form-floating">
-        <input type="text" class="form-control" name="UserID" placeholder="name@example.com">
-        <label for="floatingInput" class="cntrst">Benutzer-ID</label>
+        <input type="text" class="form-control" name="Username" placeholder="name@example.com">
+        <label for="floatingInput" class="cntrst">Benutzername</label>
       </div>
       <div class="form-floating">
         <input type="password" class="form-control" name="password" placeholder="Password">

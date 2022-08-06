@@ -1,4 +1,9 @@
 <?php
+  if(isset($_POST['logout']))
+  {
+    session_destroy();
+    header('Location: ./signin.php');
+  }
 ?>
 
 <!doctype html>
@@ -44,26 +49,27 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-    <div class="navbar-nav">
-      <div class="nav-item text-nowrap">
-        <a class="nav-link px-3" href="#">Abmelden</a>
+    <div class="nav-item text-nowrap">
+        <form action="" method="POST">
+        <button type="submit" name="logout" class="btn btn-danger be-nav-right"><i class="fa fa-fw fa-sign-out-alt"></i>Logout</button>
+        </form>
       </div>
     </div>
   </header>
 
   <div class="container-fluid">
     <div class="row">
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">
+              <a class="nav-link" aria-current="page" href="./index.php">
                 <span data-feather="home"></span>
                 Dashboard
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">
+              <a class="nav-link active" href="./time-tracking.php">
                 <span>
                   <svg class="bi text-danger" width="20" height="20">
                     <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#clock-history" />
