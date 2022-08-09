@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap CSS -->
-  <link href="./css/bootstrap.css" rel="stylesheet">
+  <link href="./App/main.scss" rel="stylesheet">
   <link href="./css/custom.css" rel="stylesheet">
 
   <title>Moin, {{ $employee_name }}</title>

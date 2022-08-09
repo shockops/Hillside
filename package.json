@@ -2,9 +2,11 @@
   "name": "hillside",
   "version": "1.0.0",
   "description": "Pascal & Leif want to learn Vue.JS and are terrible at it.",
-  "main": "index.js",
+  "main": "./App/main.js",
   "scripts": {
-    "test": "test"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,10 @@
   },
   "homepage": "https://github.com/shockops/Hillside#readme",
   "dependencies": {
-    "bootstrap-icons": "^1.9.1"
+    "bootstrap": "^5.2.0",
+    "bootstrap-icons": "^1.9.1",
+    "bootstrap-vue": "^2.22.0",
+    "vue": "^2.7.8",
+    "vue-cli": "^1.2.0"
   }
 }
