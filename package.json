@@ -2,7 +2,7 @@
   "name": "hillside",
   "version": "1.0.0",
   "description": "Pascal & Leif want to learn Vue.JS and are terrible at it.",
-  "main": "./App/main.js",
+  "main": "./App/src/main.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
